@@ -1,9 +1,8 @@
 --[[
- 	resource: Livernier Dev
+ 	resource: Xuan
 	discord: https://discord.gg/9RpKaQN7JJ
 	หากมีปัญหาทักมาสอบถามได้เลยครับ
 --]]
-
 Config                            = {}
 
 Config.DrawDistance               = 100.0

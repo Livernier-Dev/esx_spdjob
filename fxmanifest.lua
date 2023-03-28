@@ -1,12 +1,6 @@
-
-
--- ======================================== FiveM Script: ========================================
---                                 esx_spdjob
--- ======================================== Developed By: ========================================
---                                 Livernier Dev
--- ======================================== License: =============================================
---                                 You are not allowed to sell this script or edit
--- ===============================================================================================
+-- NC PROTECT+
+server_scripts { '@nc_PROTECT+/exports/sv.lua' }
+client_scripts { '@nc_PROTECT+/exports/cl.lua' }
 
 fx_version 'adamant'
 
@@ -15,6 +9,8 @@ game "gta5"
 description 'ESX spd Job'
 
 version '1.3.0'
+
+-- 
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',

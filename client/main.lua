@@ -65,14 +65,6 @@ local Keys = {
 					direction = 'right',
 					duration = 3000
 				})
-			  else
-				  TriggerEvent("pNotify:SendNotification", {
-					  text = '<strong class="red-text">ไม่มีชุด</span>',
-					  type = "success",
-					  timeout = 3000,
-					  layout = "bottomCenter",
-					  queue = "global"
-				  })
 			  end
   
 			  if job == 'bullet_wear' then
@@ -90,13 +82,6 @@ local Keys = {
 					direction = 'right',
 					duration = 3000
 				})
-				  TriggerEvent("pNotify:SendNotification", {
-					  text = '<strong class="red-text">ไม่มีชุด</span>',
-					  type = "success",
-					  timeout = 3000,
-					  layout = "bottomCenter",
-					  queue = "global"
-				  })
 			  end
   
 			  if job == 'bullet_wear' then
@@ -321,14 +306,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-				  else
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">คุณไม่ได้รับอนุญาตให้ซื้อเฮลิคอปเตอร์</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 					  return
 				  end
 			  end
@@ -348,7 +325,6 @@ local Keys = {
 							  label = label .. ('<span class="green-text">%s</span>'):format(_U('garage_stored'))
 						  else
 							  label = label .. ('<span class="red-text">%s</span>'):format(_U('garage_notstored'))
-<<<<<<< HEAD
 						  end
   
 						  table.insert(garage, {
@@ -393,144 +369,6 @@ local Keys = {
 								direction = 'right',
 								duration = 3000
 							})
-						  end
-=======
-<<<<<<< HEAD
-						  end
-  
-						  table.insert(garage, {
-							  label = label,
-							  stored = v.stored,
-							  model = props.model,
-							  vehicleProps = props
-						  })
-					  end
-  
-					  ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage', {
-						  title    = _U('garage_title'),
-						  align    = 'top-left',
-						  elements = garage
-					  }, function(data2, menu2)
-						  if data2.current.stored then
-							  local foundSpawn, spawnPoint = GetAvailableVehicleSpawnPoint(station, part, partNum)
-  
-							  if foundSpawn then
-								  menu2.close()
-  
-								  ESX.Game.SpawnVehicle(data2.current.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
-									  ESX.Game.SetVehicleProperties(vehicle, data2.current.vehicleProps)
-  
-									  TriggerServerEvent('esx_vehicleshop:setJobVehicleState', data2.current.vehicleProps.plate, false)
-									  exports.nc_notify:PushNotification({
-										title = ' นำรถของคุณออกมาเรียบร้อยแล้ว ',
-										description = message,
-										color = '#94dcfc',
-										icon = 'message',
-										direction = 'right',
-										duration = 3000
-									})
-								  end)
-							  end
-						  else
-							exports.nc_notify:PushNotification({
-								title = ' รถของคุณไม่ได้เก็บไว้ในโรงรถ ',
-								description = message,
-								color = '#94dcfc',
-								icon = 'message',
-								direction = 'right',
-								duration = 3000
-							})
-						  end
-=======
-<<<<<<< HEAD
-						  end
-  
-						  table.insert(garage, {
-							  label = label,
-							  stored = v.stored,
-							  model = props.model,
-							  vehicleProps = props
-						  })
-					  end
-  
-					  ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage', {
-						  title    = _U('garage_title'),
-						  align    = 'top-left',
-						  elements = garage
-					  }, function(data2, menu2)
-						  if data2.current.stored then
-							  local foundSpawn, spawnPoint = GetAvailableVehicleSpawnPoint(station, part, partNum)
-  
-							  if foundSpawn then
-								  menu2.close()
-  
-								  ESX.Game.SpawnVehicle(data2.current.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
-									  ESX.Game.SetVehicleProperties(vehicle, data2.current.vehicleProps)
-  
-									  TriggerServerEvent('esx_vehicleshop:setJobVehicleState', data2.current.vehicleProps.plate, false)
-									  exports.nc_notify:PushNotification({
-										title = ' นำรถของคุณออกมาเรียบร้อยแล้ว ',
-										description = message,
-										color = '#94dcfc',
-										icon = 'message',
-										direction = 'right',
-										duration = 3000
-									})
-								  end)
-							  end
-						  else
-							exports.nc_notify:PushNotification({
-								title = ' รถของคุณไม่ได้เก็บไว้ในโรงรถ ',
-								description = message,
-								color = '#94dcfc',
-								icon = 'message',
-								direction = 'right',
-								duration = 3000
-							})
-						  end
-=======
-						  end
-  
-						  table.insert(garage, {
-							  label = label,
-							  stored = v.stored,
-							  model = props.model,
-							  vehicleProps = props
-						  })
-					  end
-  
-					  ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage', {
-						  title    = _U('garage_title'),
-						  align    = 'top-left',
-						  elements = garage
-					  }, function(data2, menu2)
-						  if data2.current.stored then
-							  local foundSpawn, spawnPoint = GetAvailableVehicleSpawnPoint(station, part, partNum)
-  
-							  if foundSpawn then
-								  menu2.close()
-  
-								  ESX.Game.SpawnVehicle(data2.current.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
-									  ESX.Game.SetVehicleProperties(vehicle, data2.current.vehicleProps)
-  
-									  TriggerServerEvent('esx_vehicleshop:setJobVehicleState', data2.current.vehicleProps.plate, false)
-									  TriggerEvent("pNotify:SendNotification", {
-										  text = '<strong class="green-text">นำรถของคุณออกมาเรียบร้อยแล้ว</strong>',
-										  type = "success",
-										  timeout = 3000,
-										  layout = "bottomCenter",
-										  queue = "global"
-									  })
-								  end)
-							  end
-						  else
-							  TriggerEvent("pNotify:SendNotification", {
-								  text = '<strong class="red-text">รถของคุณไม่ได้เก็บไว้ในโรงรถ</strong>',
-								  type = "success",
-								  timeout = 3000,
-								  layout = "bottomCenter",
-								  queue = "global"
-							  })
 						  end
 					  end, function(data2, menu2)
 						  menu2.close()
@@ -544,7 +382,6 @@ local Keys = {
 						icon = 'message',
 						direction = 'right',
 						duration = 3000
-<<<<<<< HEAD
 					})
 				  end
 			  end, type)
@@ -613,173 +450,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-=======
-<<<<<<< HEAD
-					})
-				  end
-			  end, type)
-  
-		  elseif data.current.action == 'store_garage' then
-			  StoreNearbyVehicle(playerCoords)
-		  elseif data.current.action == 'police_vehicle' then
-			  
-			  local garage_spd = {}
-			  ESX.TriggerServerCallback('esx_spdjob:getVehicleFromspd', function(jobVehicles)
-				  if #jobVehicles > 0 then
-					  for k,v in ipairs(jobVehicles) do
-						  local props = json.decode(v.vehicle)
-						  local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(props.model))
-						  local label = ('<span class="orange-text">%s</span>: '):format(props.plate)
-  
-						  if v.spd_by then
-							  label = label .. ('โดย: %s'):format(v.spd_by).." ".. v.time
-						  else
-							  label = label .. ('โดย: %s'):format("Unknow").." ".. v.time
-						  end
-  
-						  table.insert(garage_spd, {
-							  label = label,
-							  value = k
-							  -- stored = v.stored,
-							  -- value = props
-						  })
-					  end
-  
-					  ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage1', {
-						  title    = "รายชื่อรถ",
-						  align    = 'top-left',
-						  elements = garage_spd
-					  }, function(data2, menu2)
-						  local foundSpawn, spawnPoint = GetAvailableVehicleSpawnPoint(station, part, partNum)
-						  if foundSpawn then
-							  local value = data2.current.value
-							  local props = json.decode(jobVehicles[value].vehicle)
-  
-							  ESX.Game.SpawnVehicle(props.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
-								  ESX.Game.SetVehicleProperties(vehicle, props)
-  
-								  TriggerServerEvent('esx_spdjob:setVehicleFromspd', props.plate)
-								  exports.nc_notify:PushNotification({
-									title = ' เบิกรถเรียบร้อยแล้ว ',
-									description = message,
-									color = '#94dcfc',
-									icon = 'message',
-									direction = 'right',
-									duration = 3000
-								})
-							  end)
-							  menu2.close()
-						  end
-					  end, function(data2, menu2)
-						  menu2.close()
-					  end)
-  
-				  else
-					exports.nc_notify:PushNotification({
-						title = ' ไม่มีรถที่โดนยึด ',
-						description = message,
-						color = '#94dcfc',
-						icon = 'message',
-						direction = 'right',
-						duration = 3000
-					})
-=======
-					})
-=======
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">ไม่มีรถในโรงรถ</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
->>>>>>> 79f54a55a3782cba0ec893ad6043c49a7fc7a3e0
-				  end
-			  end, type)
-  
-		  elseif data.current.action == 'store_garage' then
-			  StoreNearbyVehicle(playerCoords)
-		  elseif data.current.action == 'police_vehicle' then
-			  
-			  local garage_spd = {}
-			  ESX.TriggerServerCallback('esx_spdjob:getVehicleFromspd', function(jobVehicles)
-				  if #jobVehicles > 0 then
-					  for k,v in ipairs(jobVehicles) do
-						  local props = json.decode(v.vehicle)
-						  local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(props.model))
-						  local label = ('<span class="orange-text">%s</span>: '):format(props.plate)
-  
-						  if v.spd_by then
-							  label = label .. ('โดย: %s'):format(v.spd_by).." ".. v.time
-						  else
-							  label = label .. ('โดย: %s'):format("Unknow").." ".. v.time
-						  end
-  
-						  table.insert(garage_spd, {
-							  label = label,
-							  value = k
-							  -- stored = v.stored,
-							  -- value = props
-						  })
-					  end
-  
-					  ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage1', {
-						  title    = "รายชื่อรถ",
-						  align    = 'top-left',
-						  elements = garage_spd
-					  }, function(data2, menu2)
-						  local foundSpawn, spawnPoint = GetAvailableVehicleSpawnPoint(station, part, partNum)
-						  if foundSpawn then
-							  local value = data2.current.value
-							  local props = json.decode(jobVehicles[value].vehicle)
-  
-							  ESX.Game.SpawnVehicle(props.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
-								  ESX.Game.SetVehicleProperties(vehicle, props)
-  
-								  TriggerServerEvent('esx_spdjob:setVehicleFromspd', props.plate)
-<<<<<<< HEAD
-								  exports.nc_notify:PushNotification({
-									title = ' เบิกรถเรียบร้อยแล้ว ',
-									description = message,
-									color = '#94dcfc',
-									icon = 'message',
-									direction = 'right',
-									duration = 3000
-								})
-=======
-								  TriggerEvent("pNotify:SendNotification", {
-									  text = '<strong class="green-text">เบิกรถเรียบร้อยแล้ว</span>',
-									  type = "success",
-									  timeout = 3000,
-									  layout = "bottomCenter",
-									  queue = "global"
-								  })
->>>>>>> 79f54a55a3782cba0ec893ad6043c49a7fc7a3e0
-							  end)
-							  menu2.close()
-						  end
-					  end, function(data2, menu2)
-						  menu2.close()
-					  end)
-  
-				  else
-<<<<<<< HEAD
-					exports.nc_notify:PushNotification({
-						title = ' ไม่มีรถที่โดนยึด ',
-						description = message,
-						color = '#94dcfc',
-						icon = 'message',
-						direction = 'right',
-						duration = 3000
-					})
-=======
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">ไม่มีรถที่โดนยึด</span>',
-						  type = "error",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end)
   
@@ -814,13 +484,6 @@ local Keys = {
 			direction = 'right',
 			duration = 3000
 		})
-		  TriggerEvent("pNotify:SendNotification", {
-			  text = '<strong class="red-text">ไม่มียานพาหนะใกล้เคียง</strong>',
-			  type = "success",
-			  timeout = 3000,
-			  layout = "bottomCenter",
-			  queue = "global"
-		  })
 		  return
 	  end
   
@@ -877,21 +540,6 @@ local Keys = {
 				direction = 'right',
 				duration = 3000
 			})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = '<strong class="green-text">เก็บรถเรียบร้อยแล้ว</strong>',
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
-		  else
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = '<strong class="red-text">ไม่พบยานพาหนะที่เป็นของใกล้เคียง</strong>',
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  end
 	  end, vehiclePlates)
   end
@@ -918,13 +566,6 @@ local Keys = {
 			direction = 'right',
 			duration = 3000
 		})
-		  TriggerEvent("pNotify:SendNotification", {
-			  text = '<strong class="red-text">จุดเรียกรถที่มีอยู่ทั้งหมดถูกบล็อกในขณะนี้!</strong>',
-			  type = "success",
-			  timeout = 3000,
-			  layout = "bottomCenter",
-			  queue = "global"
-		  })
 		  return false
 	  end
   end
@@ -982,13 +623,6 @@ local Keys = {
 							direction = 'right',
 							duration = 3000
 						})
-						  TriggerEvent("pNotify:SendNotification", {
-							  text = "<strong class='red-text'>คุณมีเงินไม่เพียงพอ</strong>",
-							  type = "success",
-							  timeout = 3000,
-							  layout = "bottomCenter",
-							  queue = "global"
-						  })
 						  menu2.close()
 					  end
 				  end, props, data.current.type)
@@ -1107,20 +741,8 @@ local Keys = {
 			  {label = _U('citizen_interaction'),	value = 'citizen_interaction'},
 			  {label = _U('vehicle_interaction'),	value = 'vehicle_interaction'},
 			  --{label = _U('object_spawner'),		value = 'object_spawner'},
-<<<<<<< HEAD
 			--  {label = "เจล เมนูตู้ปลา",               value = 'jail_menu'},
 			--  {label = "เจล เมนูใต้สน.",               value = 'jail_menu2'},
-=======
-<<<<<<< HEAD
-			--  {label = "เจล เมนูตู้ปลา",               value = 'jail_menu'},
-			--  {label = "เจล เมนูใต้สน.",               value = 'jail_menu2'},
-=======
-<<<<<<< HEAD
-			--  {label = "เจล เมนูตู้ปลา",               value = 'jail_menu'},
-			--  {label = "เจล เมนูใต้สน.",               value = 'jail_menu2'},
-=======
-			  {label = "เจล เมนูตู้ปลา",               value = 'jail_menu'},
-			  {label = "เจล เมนูใต้สน.",               value = 'jail_menu2'},
 			  {label = "เจล เมนูเรื่อนจำ",               value = 'jail_menu3'},
 			  -- {label = "Squad",               value = 'squad'},
 			  -- {label = "เบิกใบ Pound",               value = 'xenon_pound'}
@@ -1128,24 +750,9 @@ local Keys = {
 	  }, function(data, menu)
   
 		  if data.current.value == 'jail_menu' then
-<<<<<<< HEAD
 		--	  TriggerEvent("esx-qalle-jail:openJailMenu")		
 		--  elseif data.current.value == 'jail_menu2' then
 		--	  TriggerEvent("esx-qalle-jail2:openJailMenu")	
-=======
-<<<<<<< HEAD
-		--	  TriggerEvent("esx-qalle-jail:openJailMenu")		
-		--  elseif data.current.value == 'jail_menu2' then
-		--	  TriggerEvent("esx-qalle-jail2:openJailMenu")	
-=======
-<<<<<<< HEAD
-		--	  TriggerEvent("esx-qalle-jail:openJailMenu")		
-		--  elseif data.current.value == 'jail_menu2' then
-		--	  TriggerEvent("esx-qalle-jail2:openJailMenu")	
-=======
-			  TriggerEvent("esx-qalle-jail:openJailMenu")		
-		  elseif data.current.value == 'jail_menu2' then
-			  TriggerEvent("esx-qalle-jail2:openJailMenu")	
 		  elseif data.current.value == 'jail_menu3' then
 			  TriggerEvent("esx-qalle-jail3:openJailMenu")
 		  elseif data.current.value == 'citizen_interaction' then
@@ -1214,12 +821,6 @@ local Keys = {
 									icon = 'message',
 									direction = 'right',
 									duration = 3000
-								TriggerEvent("pNotify:SendNotification", {
-									text = "<center>ผู้เล่นเสียชีวิตอยู่<center>",
-									type = "success",
-									timeout = 3000,
-									layout = "bottomcenter",
-									queue = "global"
 								})
 							else
 								OpenBodySearchMenu(closestPlayer)
@@ -1265,13 +866,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = "ไม่มีผู้เล่นอยู่ใกล้คุณ",
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, function(data2, menu2)
 				  menu2.close()
@@ -1329,17 +923,6 @@ local Keys = {
 							  local plate = GetVehicleNumberPlateText(vehicle)
 							  local content = '' .. GetPlayerName(PlayerId()) .. ' งัดรถ ทะเบียน ' .. plate .. ''
 							  TriggerServerEvent('azael_dc-serverlogs:insertData', 'spdHijack', content, GetPlayerServerId(PlayerId()), '^5')
-							  TriggerEvent("pNotify:SendNotification", {
-								  text = '<strong class="green-text">ปลดล็อครถเรียบร้อยแล้ว</span>',
-								  type = "success",
-								  timeout = 3000,
-								  layout = "bottomCenter",
-								  queue = "global"
-							  })
-  
-							  local plate = GetVehicleNumberPlateText(vehicle)
-							  local sendToDiscord = '' .. GetPlayerName(PlayerId()) .. ' งัดรถ ทะเบียน ' .. plate .. ''
-							  TriggerServerEvent('azael_dc-serverlogs:sendToDiscord', 'SPDHijack', sendToDiscord, GetPlayerServerId(PlayerId()), '^5')
 						  end
 					  elseif action == 'impound' then
 					  
@@ -1374,13 +957,6 @@ local Keys = {
 										direction = 'right',
 										duration = 3000
 									})
-									  TriggerEvent("pNotify:SendNotification", {
-										  text = '<strong class="red-text">พาวท์รถถูกยกเลิกเนื่องจากรถเคลื่อนที่</span>',
-										  type = "success",
-										  timeout = 3000,
-										  layout = "bottomCenter",
-										  queue = "global"
-									  })
 									  ESX.ClearTimeout(CurrentTask.Task)
 									  ClearPedTasks(playerPed)
 									  CurrentTask.Busy = false
@@ -1424,13 +1000,6 @@ local Keys = {
 										direction = 'right',
 										duration = 3000
 									})
-									  TriggerEvent("pNotify:SendNotification", {
-										  text = '<strong class="red-text">พาวท์รถถูกยกเลิกเนื่องจากรถเคลื่อนที่</span>',
-										  type = "success",
-										  timeout = 3000,
-										  layout = "bottomCenter",
-										  queue = "global"
-									  })
 									  ESX.ClearTimeout(CurrentTask.Task)
 									  ClearPedTasks(playerPed)
 									  CurrentTask.Busy = false
@@ -1448,13 +1017,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">คุณอยู่ไกลจากรถเกินไป</span>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
   
 			  end, function(data2, menu2)
@@ -1473,11 +1035,6 @@ local Keys = {
 					  {label = _U('spikestrips'),	value = 'p_ld_stinger_s'},
 					  {label = _U('box'),			value = 'prop_boxpile_07d'},
 					  {label = _U('cash'),		value = 'hei_prop_cash_crate_half_full'}
-					  {label = _U('cone'),			value = 'prop_roadcone02a'},
-					  {label = _U('barrier'),		value = 'prop_barrier_work05'},
-					  {label = _U('spikestrips'),	value = 'p_ld_stinger_s'},
-					  {label = _U('box'),			value = 'prop_boxpile_07d'},
-					  {label = _U('cash'),			value = 'hei_prop_cash_crate_half_full'}
 				  }
 			  }, function(data2, menu2)
 				  local model     = data2.current.value
@@ -1609,16 +1166,7 @@ local Keys = {
   end
   
 	  function OpenBodySearchMenu(player)
-<<<<<<< HEAD
 		exports.nc_inventory:SearchInventory(GetPlayerServerId(player), 'admin')
-=======
-<<<<<<< HEAD
-		exports.nc_inventory:SearchInventory(GetPlayerServerId(player), 'admin')
-=======
-<<<<<<< HEAD
-		exports.nc_inventory:SearchInventory(GetPlayerServerId(player), 'admin')
-=======
-		  exports.nc_inventory:SearchInventory(GetPlayerServerId(player))
   end
   
   -- function OpenBodySearchMenu(player)     
@@ -1677,13 +1225,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = "กรุณาใส่รายละเอียดด้วย",
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  else
 			  CreateBillingPrice(player, data.value)
 			  menu.close()
@@ -1721,21 +1262,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = "<strong class='green-text'>สร้างบิลเรียบร้อยแล้ว</strong>",
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
-		  else
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = "กรุณาใส่จำนวนเงิน",
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  end
 	  end, function(data2, menu2)
 		  menu2.close()
@@ -1841,13 +1367,6 @@ local Keys = {
 				direction = 'right',
 				duration = 3000
 			})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = "ชื่อ-นามสกุล ไม่ถูกต้อง",
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  else
 			  ESX.TriggerServerCallback('esx_spdjob:getVehicleByName', function(result, found)
 				  if found then
@@ -1861,13 +1380,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = "ไม่พบข้อมูล",
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, data.value)
 			  menu.close()
@@ -1912,13 +1424,6 @@ local Keys = {
 				direction = 'right',
 				duration = 3000
 			})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = "ชื่อ-นามสกุล ไม่ถูกต้อง",
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  else
 			  ESX.TriggerServerCallback('esx_spdjob:getHouseByName', function(result, found)
 				  if found then
@@ -1932,13 +1437,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = "ไม่พบข้อมูล",
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, data.value)
 			  menu.close()
@@ -2003,31 +1501,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = '<strong class="red-text">เลขทะเบียนไม่ถูกต้อง</strong>',
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
-		  else
-			  ESX.TriggerServerCallback('esx_spdjob:getVehicleFromPlate', function(owner, found)
-				  if found then
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = 'รถคันนี้ลงทะเบียนโดย <strong class="green-text">'..owner..'</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
-				  else
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">ไม่มีข้อมูลนี้อยู่ในระบบ</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, data.value)
 			  menu.close()
@@ -2072,13 +1545,6 @@ local Keys = {
 				direction = 'right',
 				duration = 3000
 			})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = 'คุณเพิกถอน <strong class="blue-text">'..data.current.label..'</strong> ซึ่งเป็นของ <strong class="yellow-text">'..targetName..'</strong>',
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 			  TriggerServerEvent('esx_spdjob:message', GetPlayerServerId(player), _U('license_revoked', data.current.label))
 			  
 			  TriggerServerEvent('esx_license:removeLicense', GetPlayerServerId(player), data.current.type)
@@ -2329,13 +1795,6 @@ local Keys = {
 							direction = 'right',
 							duration = 3000
 						})
-						  TriggerEvent("pNotify:SendNotification", {
-							  text = 'คุณซื้อ <strong class="yellow-text">'..data.current.weaponLabel..'</strong> ราคา <strong class="green-text">$'..ESX.Math.GroupDigits(data.current.price)..'</strong>',
-							  type = "success",
-							  timeout = 3000,
-							  layout = "bottomCenter",
-							  queue = "global"
-						  })
 					  end
   
 					  menu.close()
@@ -2350,13 +1809,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">คุณมีเงินไม่เพียงพอ</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, data.current.name, 1)
 		  end
@@ -2383,13 +1835,6 @@ local Keys = {
 				direction = 'right',
 				duration = 3000
 			})
-			  TriggerEvent("pNotify:SendNotification", {
-				  text = '<strong class="green-text">แต่งอุปกรณ์ปืนเรียบร้อยแล้ว</strong>',
-				  type = "success",
-				  timeout = 3000,
-				  layout = "bottomCenter",
-				  queue = "global"
-			  })
 		  else
 			  ESX.TriggerServerCallback('esx_spdjob:buyWeapon', function(bought)
 				  if bought then
@@ -2402,13 +1847,6 @@ local Keys = {
 							direction = 'right',
 							duration = 3000
 						})
-						  TriggerEvent("pNotify:SendNotification", {
-							  text = 'คุณซื้อ <strong class="yellow-text">'..data.current.componentLabel..'</strong> ราคา <strong class="green-text">$'..ESX.Math.GroupDigits(data.current.price)..'</strong>',
-							  type = "success",
-							  timeout = 3000,
-							  layout = "bottomCenter",
-							  queue = "global"
-						  })
 					  end
   
 					  menu.close()
@@ -2424,13 +1862,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">คุณมีเงินไม่เพียงพอ</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  end
 			  end, weaponName, 2, data.current.componentNum)
 		  end
@@ -2477,13 +1908,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">ปริมาณที่ไม่ถูกต้อง</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  else
 					  menu2.close()
 					  menu.close()
@@ -2547,13 +1971,6 @@ local Keys = {
 						direction = 'right',
 						duration = 3000
 					})
-					  TriggerEvent("pNotify:SendNotification", {
-						  text = '<strong class="red-text">ปริมาณที่ไม่ถูกต้อง</strong>',
-						  type = "success",
-						  timeout = 3000,
-						  layout = "bottomCenter",
-						  queue = "global"
-					  })
 				  else
 					  menu2.close()
 					  menu.close()
@@ -3363,17 +2780,6 @@ local Keys = {
 		direction = 'right',
 		duration = 3000
 	})
-	  local sendToDiscord = '' .. GetPlayerName(PlayerId()) .. ' ส่งรถ ทะเบียน ' .. plate .. ' ไปยังพาวท์'
-	  TriggerServerEvent('azael_dc-serverlogs:sendToDiscord', 'SPDImPound', sendToDiscord, GetPlayerServerId(PlayerId()), '^5')
-  
-	  ESX.Game.DeleteVehicle(vehicle) 
-	  TriggerEvent("pNotify:SendNotification", {
-		  text = '<strong class="green-text">พาวน์รถเรียบร้อยแล้ว</strong>',
-		  type = "success",
-		  timeout = 3000,
-		  layout = "bottomCenter",
-		  queue = "global"
-	  })
 	  CurrentTask.Busy = false
   end
   
@@ -3392,18 +2798,6 @@ local Keys = {
 		direction = 'right',
 		duration = 3000
 	})
-	  local sendToDiscord = '' .. GetPlayerName(PlayerId()) .. ' ยึดรถ ทะเบียน ' .. plate .. ' ไปยังพาวท์'
-	  TriggerServerEvent('azael_dc-serverlogs:sendToDiscord', 'SPDImPound', sendToDiscord, GetPlayerServerId(PlayerId()), '^3')
-  
-	  TriggerServerEvent('esx_spdjob:updateVehicleFromspd', plate)
-	  ESX.Game.DeleteVehicle(vehicle) 
-	  TriggerEvent("pNotify:SendNotification", {
-		  text = '<strong class="green-text">พาวน์รถเรียบร้อยแล้ว</strong>',
-		  type = "success",
-		  timeout = 3000,
-		  layout = "bottomCenter",
-		  queue = "global"
-	  })
 	  CurrentTask.Busy = false
   end
   
