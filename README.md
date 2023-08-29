@@ -1,6 +1,6 @@
 --[[
  	resource: Livernier Dev
-	discord: https://discord.gg/9RpKaQN7JJ
+	discord: https://discord.gg/nkwKHsmMpK
 	หากมีปัญหาทักมาสอบถามได้เลยครับ
 --]]
 # Menu esx_spdjob
